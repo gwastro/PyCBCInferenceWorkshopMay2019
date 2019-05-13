@@ -3,7 +3,7 @@
 set -e
 
 WORKFLOW_NAME=emcee_pt_pptest
-OUTPUT_DIR=run
+OUTPUT_DIR=pp
 
 export OMP_NUM_THREADS=1
 
@@ -21,4 +21,5 @@ pycbc_submit_dax \
    --no-create-proxy \
    --no-grid \
    --dax ${WORKFLOW_NAME}.dax \
-   --enable-shared-filesystem
+   --enable-shared-filesystem \
+   --force-no-accounting-group
