@@ -10,6 +10,14 @@ PSD_SEG_LEN=16
 PSD_STRIDE=8
 PSD_DATA_LEN=1024
 
+# data to use
+FRAMES="H1:${PWD}/H-H1_GWOSC_4KHZ_R1-1126257415-4096.gwf L1:${PWD}/L-L1_GWOSC_4KHZ_R1-1126257415-4096.gwf"
+CHANNELS="H1:GWOSC-4KHZ_R1_STRAIN L1:GWOSC-4KHZ_R1_STRAIN"
+if [ ! -f H-H1_GWOSC_4KHZ_R1-1126257415-4096.gwf ]; then
+wget https://www.gw-openscience.org/catalog/GWTC-1-confident/data/GW150914/H-H1_GWOSC_4KHZ_R1-1126257415-4096.gwf
+wget https://www.gw-openscience.org/catalog/GWTC-1-confident/data/GW150914/L-L1_GWOSC_4KHZ_R1-1126257415-4096.gwf
+fi
+
 # the following sets the number of cores to use; adjust as needed to
 # your computer's capabilities
 NPROCS=16
@@ -33,8 +41,8 @@ PSD_END_TIME=$((TRIGGER_TIME_INT + PSD_DATA_LEN/2))
 OUTPUT_DIR=output
 
 # input configuration files
-CONFIG_PATH=workflow.ini
-INFERENCE_CONFIG_PATH=inference.ini
+CONFIG_PATH=${PWD}/ex_bbh_wf.ini
+INFERENCE_CONFIG_PATH=${PWD}/ex_bbh_inf.ini
 
 # directory that will be populated with HTML pages
 HTML_DIR=${HOME}/public_html/inference_test
@@ -45,12 +53,15 @@ pycbc_make_inference_workflow --workflow-name ${WORKFLOW_NAME} \
     --inference-config-file ${INFERENCE_CONFIG_PATH} \
     --output-dir ${OUTPUT_DIR} \
     --output-file ${WORKFLOW_NAME}.dax \
-    --output-map ${OUTPUT_MAP_PATH} \
+    --output-map output.map \
+    --transformation-catalog transformation_catalog.txt \
     --gps-end-time ${GPS_END_TIME} \
     --config-overrides workflow:start-time:${GPS_START_TIME} \
                        workflow:end-time:${GPS_END_TIME} \
                        workflow-inference:data-seconds-before-trigger:$((${SEARCH_BEFORE} - ${PSD_INVLEN})) \
-                       workflow-inference:data-seconds-after-trigger:${SEARCH_AFTER} + ${PSD_INVLEN})) \
+                       workflow-inference:data-seconds-after-trigger:$((${SEARCH_AFTER} + ${PSD_INVLEN})) \
+                       inference:frame-files:${FRAMES} \
+                       inference:channel-name:${CHANNELS} \
                        inference:psd-start-time:${PSD_START_TIME} \
                        inference:psd-end-time:${PSD_END_TIME} \
                        inference:psd-segment-length:${PSD_SEG_LEN} \
