@@ -26,12 +26,12 @@ NPROCS=16
 WORKFLOW_NAME="event"
 TRIGGER_TIME=1126259462.42
 
+# get coalescence time as an integer
+TRIGGER_TIME_INT=${TRIGGER_TIME%.*}
+
 # start and end time of data to read in
 GPS_START_TIME=$((TRIGGER_TIME_INT - SEARCH_BEFORE - PSD_INVLEN))
 GPS_END_TIME=$((TRIGGER_TIME_INT + SEARCH_AFTER + PSD_INVLEN))
-
-# get coalescence time as an integer
-TRIGGER_TIME_INT=${TRIGGER_TIME%.*}
 
 # get PSD time
 PSD_START_TIME=$((TRIGGER_TIME_INT - PSD_DATA_LEN/2))
@@ -54,14 +54,13 @@ pycbc_make_inference_workflow --workflow-name ${WORKFLOW_NAME} \
     --output-dir ${OUTPUT_DIR} \
     --output-file ${WORKFLOW_NAME}.dax \
     --output-map output.map \
-    --transformation-catalog tc.txt \
+    --transformation-catalog ${WORKFLOW_NAME}.tc.txt \
     --gps-end-time ${GPS_END_TIME} \
     --config-overrides workflow:start-time:${GPS_START_TIME} \
                        workflow:end-time:${GPS_END_TIME} \
                        workflow-inference:data-seconds-before-trigger:$((${SEARCH_BEFORE} - ${PSD_INVLEN})) \
                        workflow-inference:data-seconds-after-trigger:$((${SEARCH_AFTER} + ${PSD_INVLEN})) \
-                       inference:frame-files:${FRAMES} \
-                       inference:channel-name:${CHANNELS} \
+                       inference:frame-files:"${FRAMES}" \
                        inference:psd-start-time:${PSD_START_TIME} \
                        inference:psd-end-time:${PSD_END_TIME} \
                        inference:psd-segment-length:${PSD_SEG_LEN} \
@@ -75,6 +74,7 @@ pycbc_make_inference_workflow --workflow-name ${WORKFLOW_NAME} \
 # submit workflow
 cd ${OUTPUT_DIR}
 pycbc_submit_dax --dax ${WORKFLOW_NAME}.dax \
+    --no-create-proxy \
     --no-grid \
     --enable-shared-filesystem \
-    --accounting-group ${ACCOUNTING_GROUP}
+    --force-no-accounting-group
