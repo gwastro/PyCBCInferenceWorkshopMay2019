@@ -38,7 +38,7 @@ PSD_START_TIME=$((TRIGGER_TIME_INT - PSD_DATA_LEN/2))
 PSD_END_TIME=$((TRIGGER_TIME_INT + PSD_DATA_LEN/2))
 
 # path to output dir
-OUTPUT_DIR=output
+OUTPUT_DIR=bbh
 
 # input configuration files
 CONFIG_PATH=${PWD}/ex_bbh_wf.ini
