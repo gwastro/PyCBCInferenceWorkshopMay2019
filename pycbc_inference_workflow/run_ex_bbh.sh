@@ -54,7 +54,7 @@ pycbc_make_inference_workflow --workflow-name ${WORKFLOW_NAME} \
     --output-dir ${OUTPUT_DIR} \
     --output-file ${WORKFLOW_NAME}.dax \
     --output-map output.map \
-    --transformation-catalog transformation_catalog.txt \
+    --transformation-catalog tc.txt \
     --gps-end-time ${GPS_END_TIME} \
     --config-overrides workflow:start-time:${GPS_START_TIME} \
                        workflow:end-time:${GPS_END_TIME} \
@@ -72,9 +72,9 @@ pycbc_make_inference_workflow --workflow-name ${WORKFLOW_NAME} \
                        results_page:output-path:${HTML_DIR} \
                        results_page:analysis-subtitle:${WORKFLOW_NAME}
 
-## submit workflow
-#cd ${OUTPUT_DIR}
-#pycbc_submit_dax --dax ${WORKFLOW_NAME}.dax \
-#    --no-grid \
-#    --enable-shared-filesystem \
-#    --accounting-group ${ACCOUNTING_GROUP}
+# submit workflow
+cd ${OUTPUT_DIR}
+pycbc_submit_dax --dax ${WORKFLOW_NAME}.dax \
+    --no-grid \
+    --enable-shared-filesystem \
+    --accounting-group ${ACCOUNTING_GROUP}
