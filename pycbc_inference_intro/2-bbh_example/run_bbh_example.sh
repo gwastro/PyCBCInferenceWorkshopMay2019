@@ -7,7 +7,7 @@ SEED=39392
 
 # the following sets the number of cores to use; adjust as needed to
 # your computer's capabilities
-NPROCS=2
+NPROCS=16
 
 # trigger parameters
 TRIGGER_TIME=1126259462.42
