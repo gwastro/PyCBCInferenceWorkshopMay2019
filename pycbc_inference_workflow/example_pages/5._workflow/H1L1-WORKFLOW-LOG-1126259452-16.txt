@@ -1,0 +1,9 @@
+2019-05-13 18:51:39,771:INFO : Created log file /home/cbiwer/src/PyCBCInferenceWorkshopMay2019/pycbc_inference_workflow/bbh/results/5._workflow/H1L1-WORKFLOW-LOG-1126259452-16.txt
+2019-05-13 18:51:39,811:INFO : Entering datafind module
+2019-05-13 18:51:39,812:INFO : Starting datafind with setup_datafind_runtime_generated
+2019-05-13 18:51:39,813:INFO : Setting up connection to datafind server.
+2019-05-13 18:51:39,813:INFO : Querying datafind server for all science segments.
+2019-05-13 18:51:39,903:INFO : setup_datafind_runtime_generated completed
+2019-05-13 18:51:39,936:INFO : Leaving datafind module
+2019-05-13 18:51:40,678:INFO : Entering versioning module
+2019-05-13 18:52:02,499:INFO : Leaving versioning module
