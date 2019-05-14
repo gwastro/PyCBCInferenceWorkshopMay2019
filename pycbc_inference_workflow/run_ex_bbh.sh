@@ -11,7 +11,6 @@ PSD_STRIDE=8
 PSD_DATA_LEN=1024
 
 # data to use
-FRAMES="H1:${PWD}/H-H1_GWOSC_4KHZ_R1-1126257415-4096.gwf L1:${PWD}/L-L1_GWOSC_4KHZ_R1-1126257415-4096.gwf"
 CHANNELS="H1:GWOSC-4KHZ_R1_STRAIN L1:GWOSC-4KHZ_R1_STRAIN"
 if [ ! -f H-H1_GWOSC_4KHZ_R1-1126257415-4096.gwf ]; then
 wget https://www.gw-openscience.org/catalog/GWTC-1-confident/data/GW150914/H-H1_GWOSC_4KHZ_R1-1126257415-4096.gwf
@@ -66,7 +65,6 @@ pycbc_make_inference_workflow --workflow-name ${WORKFLOW_NAME} \
                        workflow-inference:data-seconds-after-trigger:$((${SEARCH_AFTER} + ${PSD_INVLEN})) \
                        workflow-datafind:datafind-pregenerated-cache-file-h1:${PWD}/h1.lcf \
                        workflow-datafind:datafind-pregenerated-cache-file-l1:${PWD}/l1.lcf \
-                       inference:frame-files:"${FRAMES}" \
                        inference:psd-start-time:${PSD_START_TIME} \
                        inference:psd-end-time:${PSD_END_TIME} \
                        inference:psd-segment-length:${PSD_SEG_LEN} \
