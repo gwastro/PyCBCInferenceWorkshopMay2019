@@ -18,6 +18,10 @@ wget https://www.gw-openscience.org/catalog/GWTC-1-confident/data/GW150914/H-H1_
 wget https://www.gw-openscience.org/catalog/GWTC-1-confident/data/GW150914/L-L1_GWOSC_4KHZ_R1-1126257415-4096.gwf
 fi
 
+# create frame cache files that give meta-data and path to frames
+echo "H H1_GWOSC_4KHZ_R1 1126257415 4096 file://localhost/${PWD}/H-H1_GWOSC_4KHZ_R1-1126257415-4096.gwf" > h1.lcf
+echo "L L1_GWOSC_4KHZ_R1 1126257415 4096 file://localhost/${PWD}/L-L1_GWOSC_4KHZ_R1-1126257415-4096.gwf" > l1.lcf
+
 # the following sets the number of cores to use; adjust as needed to
 # your computer's capabilities
 NPROCS=16
