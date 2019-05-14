@@ -64,6 +64,8 @@ pycbc_make_inference_workflow --workflow-name ${WORKFLOW_NAME} \
                        workflow:end-time:${GPS_END_TIME} \
                        workflow-inference:data-seconds-before-trigger:$((${SEARCH_BEFORE} - ${PSD_INVLEN})) \
                        workflow-inference:data-seconds-after-trigger:$((${SEARCH_AFTER} + ${PSD_INVLEN})) \
+                       workflow-datafind:datafind-pregenerated-cache-file-h1:${PWD}/h1.lcf \
+                       workflow-datafind:datafind-pregenerated-cache-file-l1:${PWD}/l1.lcf \
                        inference:frame-files:"${FRAMES}" \
                        inference:psd-start-time:${PSD_START_TIME} \
                        inference:psd-end-time:${PSD_END_TIME} \
