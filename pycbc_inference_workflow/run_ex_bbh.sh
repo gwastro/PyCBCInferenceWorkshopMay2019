@@ -77,10 +77,11 @@ pycbc_make_inference_workflow --workflow-name ${WORKFLOW_NAME} \
                        results_page:output-path:${HTML_DIR} \
                        results_page:analysis-subtitle:${WORKFLOW_NAME}
 
-# submit workflow
-cd ${OUTPUT_DIR}
-pycbc_submit_dax --dax ${WORKFLOW_NAME}.dax \
-    --no-create-proxy \
-    --no-grid \
-    --enable-shared-filesystem \
-    --force-no-accounting-group
+## submit workflow
+## note the following will not work within the SciServer container
+#cd ${OUTPUT_DIR}
+#pycbc_submit_dax --dax ${WORKFLOW_NAME}.dax \
+#    --no-create-proxy \
+#    --no-grid \
+#    --enable-shared-filesystem \
+#    --force-no-accounting-group
