@@ -1,0 +1,431 @@
+<html lang="en">
+
+<head>
+
+    <!-- set initial view -->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- add jquery -->
+    <script src="../../static/js/jquery/1.10.2/jquery-1.10.2.min.js" type="text/javascript"></script>
+
+    <!-- add mousewheel scrolling -->
+    <script type="text/javascript" src="../../static/js/jquery/1.10.2/jquery.mousewheel-3.0.6.pack.js"></script>
+
+    <!-- add bootstrap -->
+    <link media="all" href="../../static/css/bootstrap/3.3.2/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="../../static/js/bootstrap/3.3.2/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- add fancybox -->
+    <script type="text/javascript" src="../../static/js/fancybox/2.1.5/jquery.fancybox.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../static/css/fancybox/2.1.5/jquery.fancybox.css" media="screen" />
+
+    <!-- add mathjax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <!-- add orange stylization -->
+    <script type="text/javascript" src="../../static/js/fancybox/2.1.5/fancybox-orange.js"></script> 
+    <link media="all" href="../../static/css/pycbc/orange.css" type="text/css" rel="stylesheet">
+
+    <!-- add popover js -->
+    <script> $(function () {$('[data-toggle="popover"]').popover()})</script>
+    <style type="text/css">
+        .popover{
+            max-width:600px;
+        }
+    </style>
+
+    <!-- add expand all js -->
+    <script>
+        $(function () {
+
+            var active = true;
+
+            $('#collapse-init').click(function () {
+                if (active) {
+                    active = false;
+                    $('.panel-collapse').collapse('show');
+                    $('.panel-title').attr('data-toggle', '');
+                    $(this).text('Collapse All');
+                } else {
+                    active = true;
+                    $('.panel-collapse').collapse('hide');
+                    $('.panel-title').attr('data-toggle', 'collapse');
+                    $(this).text('Expand All');
+                }
+            });
+    
+            $('#accordion').on('show.bs.collapse', function () {
+                if (active) $('#accordion .in').collapse('hide');
+            });
+
+        });
+    </script>
+
+    <!-- title -->
+    <title>PyCBC Inference Test</title>
+
+    <!-- add fonts -->
+    <style>
+    @font-face {
+        font-family : 'Lato';
+        src : url('../../static/fonts/Lato-Light.eot');
+        src : url('../../static/fonts/Lato-Light.eot') format('embedded-opentype'),url('../../static/fonts/Lato-Light.woff') format('woff'),url('../../static/fonts/Lato-Light.ttf') format('truetype');
+        text-rendering : optimizeLegibility;
+    }
+    @font-face{
+        font-family : 'Lato';
+        src : url('../../static/fonts/Lato-Semibold.eot');
+        src : url('../../static/fonts/Lato-Semibold.eot') format('embedded-opentype'),url('../../static/fonts/Lato-Semibold.woff') format('woff'),url('../../static/fonts/Lato-Semibold.ttf') format('truetype');
+        font-weight : bold;
+       text-rendering : optimizeLegibility;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<div id="wrap">
+
+<!-- set dir0 counter integer -->
+
+
+<!-- navbar -->
+<div class="navbar navbar-custom navbar-static-top">
+  <div class="container-fluid">
+
+        <!-- title and subtitle -->
+        <div class="row" style="padding-top:10px">
+            <div class="col-md-6">
+                <p class="text-left"><b>PyCBC Inference Test</b></p>
+            </div>
+            <div class="col-md-6">
+                <p class="text-right"><b>event</b></p>
+            </div>
+        </div>
+
+    <!-- button for collapsed navbar -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- buttons on navbar -->
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+
+        <!-- always have a button to the top-level directory -->
+        <li class="active"><a href="../../">Summary</a></li>
+
+        <!-- display top-level directories -->
+        
+        <li class="dropdown ">
+            <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">1. Detector Sensitivity<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li role="presentation"><a href="../../1._detector_sensitivity" role="menuitem">Summary</a></li>
+                <li class="divider"></li>
+
+                <!-- set subsection counter integer -->
+                
+
+            </ul>
+        </li>
+        
+        <li class="dropdown ">
+            <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">2. Priors<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li role="presentation"><a href="../../2._priors" role="menuitem">Summary</a></li>
+                <li class="divider"></li>
+
+                <!-- set subsection counter integer -->
+                
+                    <li role="presentation"><a href="../.././2._priors/2.01_configuration" role="menuitem">2.01 Configuration</a></li>
+                
+
+            </ul>
+        </li>
+        
+        <li class="dropdown ">
+            <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">3. Posteriors<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li role="presentation"><a href="../../3._posteriors" role="menuitem">Summary</a></li>
+                <li class="divider"></li>
+
+                <!-- set subsection counter integer -->
+                
+                    <li role="presentation"><a href="../.././3._posteriors/3.01_1d_distance_posteriors" role="menuitem">3.01 1D Distance Posteriors</a></li>
+                
+                    <li role="presentation"><a href="../.././3._posteriors/3.02_1d_mass_posteriors" role="menuitem">3.02 1D Mass Posteriors</a></li>
+                
+                    <li role="presentation"><a href="../.././3._posteriors/3.03_1d_orientation_posteriors" role="menuitem">3.03 1D Orientation Posteriors</a></li>
+                
+
+            </ul>
+        </li>
+        
+        <li class="dropdown ">
+            <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">4. Samples<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li role="presentation"><a href="../../4._samples" role="menuitem">Summary</a></li>
+                <li class="divider"></li>
+
+                <!-- set subsection counter integer -->
+                
+                    <li role="presentation"><a href="../.././4._samples/4.01_acceptance_rate" role="menuitem">4.01 Acceptance Rate</a></li>
+                
+
+            </ul>
+        </li>
+        
+        <li class="dropdown ">
+            <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">5. Workflow<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li role="presentation"><a href="../../5._workflow" role="menuitem">Summary</a></li>
+                <li class="divider"></li>
+
+                <!-- set subsection counter integer -->
+                
+                    <li role="presentation"><a href="../.././5._workflow/5.01_version" role="menuitem">5.01 Version</a></li>
+                
+                    <li role="presentation"><a href="../.././5._workflow/5.02_configuration" role="menuitem">5.02 Configuration</a></li>
+                
+
+            </ul>
+        </li>
+        
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div id="main">
+        <div class="container">
+            <div id="content">
+
+                <!-- page name -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>2.01 Configuration</h1>
+                     </div>
+                </div>
+
+                <!-- set file counter integer -->
+                
+
+                <!-- include well if it exists and check meta-data if well renders any files inside it -->
+                
+                
+                    <div class=pycbc-meta key="render-function" value="render_tmplt"></div><div class=pycbc-meta key="filenames" value="priors.ini"></div><!-- add a subtitle -->
+
+
+<!-- hold images inside a well -->
+<div class="scaffold well">
+
+    <!-- set file counter integer -->
+    
+
+    <!-- display formatted files -->
+    
+        <div class="row">
+
+            <!-- two file case -->
+            
+
+            <!-- one file case -->
+            
+                <div class="col-md-12" style="padding-top:20px;">
+                <a name="A1"></a>
+                    
+                    
+                        
+                            
+                            <!--image file condition-->
+
+    <pre>[model]
+name = marginalized_phase
+h1-low-frequency-cutoff = 20
+l1-low-frequency-cutoff = 20
+
+[sampler]
+name = emcee_pt
+nwalkers = 1000
+ntemps = 4
+niterations = 45
+checkpoint-interval = 2000
+max-samples-per-chain = 1000
+
+[sampler-burn_in]
+burn-in-test = nacl & max_posterior
+
+[variable_params]
+tc = 
+mass1 = 
+mass2 = 
+spin1_a = 
+spin1_azimuthal = 
+spin1_polar = 
+spin2_a = 
+spin2_azimuthal = 
+spin2_polar = 
+distance = 
+inclination = 
+polarization = 
+ra = 
+dec = 
+
+[static_params]
+approximant = IMRPhenomPv2
+f_lower = 18
+f_ref = 20
+
+[prior-tc]
+name = uniform
+min-tc = 1126259462.32
+max-tc = 1126259462.52
+
+[prior-mass1]
+name = uniform
+min-mass1 = 10.
+max-mass1 = 80.
+
+[prior-mass2]
+name = uniform
+min-mass2 = 10.
+max-mass2 = 80.
+
+[prior-spin1_a]
+name = uniform
+min-spin1_a = 0.0
+max-spin1_a = 0.99
+
+[prior-spin1_azimuthal]
+name = uniform_angle
+
+[prior-spin1_polar]
+name = sin_angle
+
+[prior-spin2_a]
+name = uniform
+min-spin2_a = 0.0
+max-spin2_a = 0.99
+
+[prior-spin2_azimuthal]
+name = uniform_angle
+
+[prior-spin2_polar]
+name = sin_angle
+
+[prior-distance]
+name = uniform_radius
+min-distance = 10
+max-distance = 1000
+
+[prior-inclination]
+name = sin_angle
+
+[prior-ra]
+name = uniform_angle
+
+[prior-dec]
+name = cos_angle
+
+[prior-polarization]
+name = uniform_angle
+
+[sampling_params]
+mass1, mass2 = mchirp, q
+
+[sampling_transforms-mchirp+q]
+name = mass1_mass2_to_mchirp_q
+
+</pre>
+
+<!--html file fragments-->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='priors.ini' target="_blank">Link to File</a>
+
+<!--make a caption to the content -->
+
+
+<!--show cmd line if there is one -->
+
+                    
+                    
+                </div>
+            
+
+            <!-- increment -->
+            
+
+    </div>
+    
+
+</div>
+                    
+                        
+                    
+                
+
+                <hr class="row-divider">
+
+                <!-- display other files in directory -->
+                
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- loop over files in directory -->
+                        <h1>Additional Files</h1>
+                            The following files were also found in this directory:
+                            <div class="row" style="padding:15px">
+                                <button id="collapse-init" class="btn btn-xs btn-primary">Expand All</button>
+                            </div>
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                    </div>
+                </div>
+                
+
+            </div>
+         </div>
+     </div>
+</div>
+
+<footer>
+    <div class="container-fluid">
+        <div class="footer-custom">
+            <a href="../../sitemap/index.html">Sitemap</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
