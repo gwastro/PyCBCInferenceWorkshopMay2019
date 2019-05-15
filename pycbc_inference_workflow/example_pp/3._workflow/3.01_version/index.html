@@ -1,0 +1,576 @@
+<html lang="en">
+
+<head>
+
+    <!-- set initial view -->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- add jquery -->
+    <script src="../../static/js/jquery/1.10.2/jquery-1.10.2.min.js" type="text/javascript"></script>
+
+    <!-- add mousewheel scrolling -->
+    <script type="text/javascript" src="../../static/js/jquery/1.10.2/jquery.mousewheel-3.0.6.pack.js"></script>
+
+    <!-- add bootstrap -->
+    <link media="all" href="../../static/css/bootstrap/3.3.2/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="../../static/js/bootstrap/3.3.2/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- add fancybox -->
+    <script type="text/javascript" src="../../static/js/fancybox/2.1.5/jquery.fancybox.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../static/css/fancybox/2.1.5/jquery.fancybox.css" media="screen" />
+
+    <!-- add mathjax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <!-- add orange stylization -->
+    <script type="text/javascript" src="../../static/js/fancybox/2.1.5/fancybox-orange.js"></script> 
+    <link media="all" href="../../static/css/pycbc/orange.css" type="text/css" rel="stylesheet">
+
+    <!-- add popover js -->
+    <script> $(function () {$('[data-toggle="popover"]').popover()})</script>
+    <style type="text/css">
+        .popover{
+            max-width:600px;
+        }
+    </style>
+
+    <!-- add expand all js -->
+    <script>
+        $(function () {
+
+            var active = true;
+
+            $('#collapse-init').click(function () {
+                if (active) {
+                    active = false;
+                    $('.panel-collapse').collapse('show');
+                    $('.panel-title').attr('data-toggle', '');
+                    $(this).text('Collapse All');
+                } else {
+                    active = true;
+                    $('.panel-collapse').collapse('hide');
+                    $('.panel-title').attr('data-toggle', 'collapse');
+                    $(this).text('Expand All');
+                }
+            });
+    
+            $('#accordion').on('show.bs.collapse', function () {
+                if (active) $('#accordion .in').collapse('hide');
+            });
+
+        });
+    </script>
+
+    <!-- title -->
+    <title>PP workflow test</title>
+
+    <!-- add fonts -->
+    <style>
+    @font-face {
+        font-family : 'Lato';
+        src : url('../../static/fonts/Lato-Light.eot');
+        src : url('../../static/fonts/Lato-Light.eot') format('embedded-opentype'),url('../../static/fonts/Lato-Light.woff') format('woff'),url('../../static/fonts/Lato-Light.ttf') format('truetype');
+        text-rendering : optimizeLegibility;
+    }
+    @font-face{
+        font-family : 'Lato';
+        src : url('../../static/fonts/Lato-Semibold.eot');
+        src : url('../../static/fonts/Lato-Semibold.eot') format('embedded-opentype'),url('../../static/fonts/Lato-Semibold.woff') format('woff'),url('../../static/fonts/Lato-Semibold.ttf') format('truetype');
+        font-weight : bold;
+       text-rendering : optimizeLegibility;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<div id="wrap">
+
+<!-- set dir0 counter integer -->
+
+
+<!-- navbar -->
+<div class="navbar navbar-custom navbar-static-top">
+  <div class="container-fluid">
+
+        <!-- title and subtitle -->
+        <div class="row" style="padding-top:10px">
+            <div class="col-md-6">
+                <p class="text-left"><b>PP workflow test</b></p>
+            </div>
+            <div class="col-md-6">
+                <p class="text-right"><b></b></p>
+            </div>
+        </div>
+
+    <!-- button for collapsed navbar -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- buttons on navbar -->
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+
+        <!-- always have a button to the top-level directory -->
+        <li class="active"><a href="../../">Summary</a></li>
+
+        <!-- display top-level directories -->
+        
+        <li class="dropdown ">
+            <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">1. Posteriors<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li role="presentation"><a href="../../1._posteriors" role="menuitem">Summary</a></li>
+                <li class="divider"></li>
+
+                <!-- set subsection counter integer -->
+                
+                    <li role="presentation"><a href="../.././1._posteriors/1.01_extrinsic_posteriors" role="menuitem">1.01 Extrinsic Posteriors</a></li>
+                
+                    <li role="presentation"><a href="../.././1._posteriors/1.02_intrinsic_posteriors" role="menuitem">1.02 Intrinsic Posteriors</a></li>
+                
+                    <li role="presentation"><a href="../.././1._posteriors/1.03_masses_posteriors" role="menuitem">1.03 Masses Posteriors</a></li>
+                
+
+            </ul>
+        </li>
+        
+        <li class="dropdown ">
+            <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">2. Samples<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li role="presentation"><a href="../../2._samples" role="menuitem">Summary</a></li>
+                <li class="divider"></li>
+
+                <!-- set subsection counter integer -->
+                
+                    <li role="presentation"><a href="../.././2._samples/2.01_extrinsic_samples" role="menuitem">2.01 Extrinsic Samples</a></li>
+                
+                    <li role="presentation"><a href="../.././2._samples/2.02_intrinsic_samples" role="menuitem">2.02 Intrinsic Samples</a></li>
+                
+                    <li role="presentation"><a href="../.././2._samples/2.03_masses_samples" role="menuitem">2.03 Masses Samples</a></li>
+                
+
+            </ul>
+        </li>
+        
+        <li class="dropdown ">
+            <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">3. Workflow<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li role="presentation"><a href="../../3._workflow" role="menuitem">Summary</a></li>
+                <li class="divider"></li>
+
+                <!-- set subsection counter integer -->
+                
+                    <li role="presentation"><a href="../.././3._workflow/3.01_version" role="menuitem">3.01 Version</a></li>
+                
+                    <li role="presentation"><a href="../.././3._workflow/3.02_workflow_configuration" role="menuitem">3.02 Workflow Configuration</a></li>
+                
+                    <li role="presentation"><a href="../.././3._workflow/3.03_inference_configuration" role="menuitem">3.03 Inference Configuration</a></li>
+                
+
+            </ul>
+        </li>
+        
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div id="main">
+        <div class="container">
+            <div id="content">
+
+                <!-- page name -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>3.01 Version</h1>
+                     </div>
+                </div>
+
+                <!-- set file counter integer -->
+                
+
+                <!-- include well if it exists and check meta-data if well renders any files inside it -->
+                
+                
+
+                <hr class="row-divider">
+
+                <!-- display other files in directory -->
+                
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- loop over files in directory -->
+                        <h1>Additional Files</h1>
+                            The following files were also found in this directory:
+                            <div class="row" style="padding:15px">
+                                <button id="collapse-init" class="btn btn-xs btn-primary">Expand All</button>
+                            </div>
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" data-toggle="collapse" data-target="#collapse1">
+                                                        
+                                                            B1. LALFrame Version Information
+                                                        
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse1" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <!--use <pre> tag for displaying content-->
+<pre><div class=pycbc-meta key="render-function" value="render_text"></div><div class=pycbc-meta key="version" value="Version: f4c44c
+Branch: update_create_injections
+Tag: None
+Id: f4c44c1a8bc3050e8b93e214f9982d2523c792b8
+Builder: dfinstad <daniel.finstad@ligo.org>
+Build date: 2019-05-11 17:36:50 +0000
+Repository status is CLEAN: All modifications committed"></div><div class=pycbc-meta key="title" value="LALFrame Version Information"></div><li> Status : CLEAN: All modifications committed </li>
+<li> Committer : Adam Mercer <adam.mercer@ligo.org> </li>
+<li> Version : 1.4.3.1 </li>
+<li> Name : LALFrame </li>
+<li> Author : Adam Mercer <adam.mercer@ligo.org> </li>
+<li> Tag : None </li>
+<li> Branch : master </li>
+<li> Date : 2018-06-26 22:19:55 +0000 </li>
+<li> ID : 257caf2072bc30cf32a37a7fdddb284c605b3c8d </li>
+</pre>
+
+<!--make a caption to the content -->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='LALFrame_version_information.html' target="_blank">Link to File</a>
+
+<!--show cmd line if there is one -->
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" data-toggle="collapse" data-target="#collapse2">
+                                                        
+                                                            B2. LALSimulation Version Information
+                                                        
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse2" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <!--use <pre> tag for displaying content-->
+<pre><div class=pycbc-meta key="render-function" value="render_text"></div><div class=pycbc-meta key="version" value="Version: f4c44c
+Branch: update_create_injections
+Tag: None
+Id: f4c44c1a8bc3050e8b93e214f9982d2523c792b8
+Builder: dfinstad <daniel.finstad@ligo.org>
+Build date: 2019-05-11 17:36:50 +0000
+Repository status is CLEAN: All modifications committed"></div><div class=pycbc-meta key="title" value="LALSimulation Version Information"></div><li> Status : CLEAN: All modifications committed </li>
+<li> Committer : Adam Mercer <adam.mercer@ligo.org> </li>
+<li> Version : 1.7.3.1 </li>
+<li> Name : LALSimulation </li>
+<li> Author : Adam Mercer <adam.mercer@ligo.org> </li>
+<li> Tag : None </li>
+<li> Branch : master </li>
+<li> Date : 2018-06-26 22:19:55 +0000 </li>
+<li> ID : 257caf2072bc30cf32a37a7fdddb284c605b3c8d </li>
+</pre>
+
+<!--make a caption to the content -->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='LALSimulation_version_information.html' target="_blank">Link to File</a>
+
+<!--show cmd line if there is one -->
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" data-toggle="collapse" data-target="#collapse3">
+                                                        
+                                                            B3. LAL Version Information
+                                                        
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse3" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <!--use <pre> tag for displaying content-->
+<pre><div class=pycbc-meta key="render-function" value="render_text"></div><div class=pycbc-meta key="version" value="Version: f4c44c
+Branch: update_create_injections
+Tag: None
+Id: f4c44c1a8bc3050e8b93e214f9982d2523c792b8
+Builder: dfinstad <daniel.finstad@ligo.org>
+Build date: 2019-05-11 17:36:50 +0000
+Repository status is CLEAN: All modifications committed"></div><div class=pycbc-meta key="title" value="LAL Version Information"></div><li> Status : CLEAN: All modifications committed </li>
+<li> Committer : Adam Mercer <adam.mercer@ligo.org> </li>
+<li> Version : 6.18.0.1 </li>
+<li> Name : LAL </li>
+<li> Author : Adam Mercer <adam.mercer@ligo.org> </li>
+<li> Tag : None </li>
+<li> Branch : master </li>
+<li> Date : 2018-06-26 22:19:55 +0000 </li>
+<li> ID : 257caf2072bc30cf32a37a7fdddb284c605b3c8d </li>
+</pre>
+
+<!--make a caption to the content -->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='LAL_version_information.html' target="_blank">Link to File</a>
+
+<!--show cmd line if there is one -->
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" data-toggle="collapse" data-target="#collapse4">
+                                                        
+                                                            B4. LSCSoft-Glue Version Information
+                                                        
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse4" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <!--use <pre> tag for displaying content-->
+<pre><div class=pycbc-meta key="render-function" value="render_text"></div><div class=pycbc-meta key="version" value="Version: f4c44c
+Branch: update_create_injections
+Tag: None
+Id: f4c44c1a8bc3050e8b93e214f9982d2523c792b8
+Builder: dfinstad <daniel.finstad@ligo.org>
+Build date: 2019-05-11 17:36:50 +0000
+Repository status is CLEAN: All modifications committed"></div><div class=pycbc-meta key="title" value="LSCSoft-Glue Version Information"></div><li> Status : CLEAN: All modifications committed </li>
+<li> Committer : Ryan Fisher <ryan.fisher@ligo.org> </li>
+<li> Version : 2.0.0 </li>
+<li> Name : LSCSoft-Glue </li>
+<li> Author : Ryan Fisher <ryan.fisher@ligo.org> </li>
+<li> Builder : Ryan Fisher <ryan.fisher@ligo.org> </li>
+<li> Tag : glue-release-2.0.0 </li>
+<li> Branch : master </li>
+<li> Date : 2019-02-20 22:43:17 +0000 </li>
+<li> ID : a1e5109f4893fd04cab4237827f62382ec61d50f </li>
+</pre>
+
+<!--make a caption to the content -->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='LSCSoft-Glue_version_information.html' target="_blank">Link to File</a>
+
+<!--show cmd line if there is one -->
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" data-toggle="collapse" data-target="#collapse5">
+                                                        
+                                                            B5. PyCBC Version Information
+                                                        
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse5" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <!--use <pre> tag for displaying content-->
+<pre><div class=pycbc-meta key="render-function" value="render_text"></div><div class=pycbc-meta key="version" value="Version: f4c44c
+Branch: update_create_injections
+Tag: None
+Id: f4c44c1a8bc3050e8b93e214f9982d2523c792b8
+Builder: dfinstad <daniel.finstad@ligo.org>
+Build date: 2019-05-11 17:36:50 +0000
+Repository status is CLEAN: All modifications committed"></div><div class=pycbc-meta key="title" value="PyCBC Version Information"></div><li> Status : CLEAN: All modifications committed </li>
+<li> Committer : dfinstad <daniel.finstad@ligo.org> </li>
+<li> Version :  </li>
+<li> Name : PyCBC </li>
+<li> Author : dfinstad <daniel.finstad@ligo.org> </li>
+<li> Builder : dfinstad <daniel.finstad@ligo.org> </li>
+<li> Tag : None </li>
+<li> Branch : update_create_injections </li>
+<li> Date : 2019-05-11 17:36:50 +0000 </li>
+<li> ID : f4c44c </li>
+</pre>
+
+<!--make a caption to the content -->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='PyCBC_version_information.html' target="_blank">Link to File</a>
+
+<!--show cmd line if there is one -->
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" data-toggle="collapse" data-target="#collapse6">
+                                                        
+                                                            B6. Version Information from Executables
+                                                        
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse6" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <!--use <pre> tag for displaying content-->
+<pre><div class=pycbc-meta key="render-function" value="render_text"></div><div class=pycbc-meta key="version" value="Version: f4c44c
+Branch: update_create_injections
+Tag: None
+Id: f4c44c1a8bc3050e8b93e214f9982d2523c792b8
+Builder: dfinstad <daniel.finstad@ligo.org>
+Build date: 2019-05-11 17:36:50 +0000
+Repository status is CLEAN: All modifications committed"></div><div class=pycbc-meta key="title" value="Version Information from Executables"></div><li><b>pycbc_create_injections</b>:<br><pre>Version: f4c44c
+Branch: update_create_injections
+Tag: None
+Id: f4c44c1a8bc3050e8b93e214f9982d2523c792b8
+Builder: dfinstad <daniel.finstad&#64;ligo.org>
+Build date: 2019-05-11 17:36:50 +0000
+Repository status is CLEAN: All modifications committed
+</pre></li><hr><br><br>
+<li><b>pycbc_inference_plot_inj_intervals</b>:<br><pre>f4c44c
+</pre></li><hr><br><br>
+<li><b>pycbc_make_html_page</b>:<br><pre>Version: f4c44c Branch: update_create_injections Tag: None Id:
+f4c44c1a8bc3050e8b93e214f9982d2523c792b8 Builder: dfinstad
+<daniel.finstad&#64;ligo.org> Build date: 2019-05-11 17:36:50 +0000 Repository
+status is CLEAN: All modifications committed
+</pre></li><hr><br><br>
+<li><b>run_pycbc_inference</b>:<br><pre>f4c44c
+</pre></li><hr><br><br>
+<li><b>pycbc_inference_plot_posterior</b>:<br><pre>f4c44c
+</pre></li><hr><br><br>
+<li><b>pycbc_inference_plot_acceptance_rate</b>:<br><pre>f4c44c
+</pre></li><hr><br><br>
+<li><b>pycbc_inference_table_summary</b>:<br><pre>Executable fails on /home/daniel.finstad/opt/pycbc-dev/bin/pycbc_inference_table_summary --version</pre></li><hr><br><br>
+<li><b>pycbc_inference_plot_inj_recovery</b>:<br><pre>f4c44c
+</pre></li><hr><br><br>
+<li><b>pycbc_inference_plot_samples</b>:<br><pre>f4c44c
+</pre></li><hr><br><br>
+</pre>
+
+<!--make a caption to the content -->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='version_information_from_executables.html' target="_blank">Link to File</a>
+
+<!--show cmd line if there is one -->
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    
+
+                                
+                            
+                    </div>
+                </div>
+                
+
+            </div>
+         </div>
+     </div>
+</div>
+
+<footer>
+    <div class="container-fluid">
+        <div class="footer-custom">
+            <a href="../../sitemap/index.html">Sitemap</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
