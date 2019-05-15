@@ -1,0 +1,936 @@
+<html lang="en">
+
+<head>
+
+    <!-- set initial view -->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- add jquery -->
+    <script src="../../static/js/jquery/1.10.2/jquery-1.10.2.min.js" type="text/javascript"></script>
+
+    <!-- add mousewheel scrolling -->
+    <script type="text/javascript" src="../../static/js/jquery/1.10.2/jquery.mousewheel-3.0.6.pack.js"></script>
+
+    <!-- add bootstrap -->
+    <link media="all" href="../../static/css/bootstrap/3.3.2/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="../../static/js/bootstrap/3.3.2/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- add fancybox -->
+    <script type="text/javascript" src="../../static/js/fancybox/2.1.5/jquery.fancybox.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../static/css/fancybox/2.1.5/jquery.fancybox.css" media="screen" />
+
+    <!-- add mathjax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <!-- add orange stylization -->
+    <script type="text/javascript" src="../../static/js/fancybox/2.1.5/fancybox-orange.js"></script> 
+    <link media="all" href="../../static/css/pycbc/orange.css" type="text/css" rel="stylesheet">
+
+    <!-- add popover js -->
+    <script> $(function () {$('[data-toggle="popover"]').popover()})</script>
+    <style type="text/css">
+        .popover{
+            max-width:600px;
+        }
+    </style>
+
+    <!-- add expand all js -->
+    <script>
+        $(function () {
+
+            var active = true;
+
+            $('#collapse-init').click(function () {
+                if (active) {
+                    active = false;
+                    $('.panel-collapse').collapse('show');
+                    $('.panel-title').attr('data-toggle', '');
+                    $(this).text('Collapse All');
+                } else {
+                    active = true;
+                    $('.panel-collapse').collapse('hide');
+                    $('.panel-title').attr('data-toggle', 'collapse');
+                    $(this).text('Expand All');
+                }
+            });
+    
+            $('#accordion').on('show.bs.collapse', function () {
+                if (active) $('#accordion .in').collapse('hide');
+            });
+
+        });
+    </script>
+
+    <!-- title -->
+    <title>PP workflow test</title>
+
+    <!-- add fonts -->
+    <style>
+    @font-face {
+        font-family : 'Lato';
+        src : url('../../static/fonts/Lato-Light.eot');
+        src : url('../../static/fonts/Lato-Light.eot') format('embedded-opentype'),url('../../static/fonts/Lato-Light.woff') format('woff'),url('../../static/fonts/Lato-Light.ttf') format('truetype');
+        text-rendering : optimizeLegibility;
+    }
+    @font-face{
+        font-family : 'Lato';
+        src : url('../../static/fonts/Lato-Semibold.eot');
+        src : url('../../static/fonts/Lato-Semibold.eot') format('embedded-opentype'),url('../../static/fonts/Lato-Semibold.woff') format('woff'),url('../../static/fonts/Lato-Semibold.ttf') format('truetype');
+        font-weight : bold;
+       text-rendering : optimizeLegibility;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<div id="wrap">
+
+<!-- set dir0 counter integer -->
+
+
+<!-- navbar -->
+<div class="navbar navbar-custom navbar-static-top">
+  <div class="container-fluid">
+
+        <!-- title and subtitle -->
+        <div class="row" style="padding-top:10px">
+            <div class="col-md-6">
+                <p class="text-left"><b>PP workflow test</b></p>
+            </div>
+            <div class="col-md-6">
+                <p class="text-right"><b></b></p>
+            </div>
+        </div>
+
+    <!-- button for collapsed navbar -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- buttons on navbar -->
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+
+        <!-- always have a button to the top-level directory -->
+        <li class="active"><a href="../../">Summary</a></li>
+
+        <!-- display top-level directories -->
+        
+        <li class="dropdown ">
+            <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">1. Posteriors<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li role="presentation"><a href="../../1._posteriors" role="menuitem">Summary</a></li>
+                <li class="divider"></li>
+
+                <!-- set subsection counter integer -->
+                
+                    <li role="presentation"><a href="../.././1._posteriors/1.01_extrinsic_posteriors" role="menuitem">1.01 Extrinsic Posteriors</a></li>
+                
+                    <li role="presentation"><a href="../.././1._posteriors/1.02_intrinsic_posteriors" role="menuitem">1.02 Intrinsic Posteriors</a></li>
+                
+                    <li role="presentation"><a href="../.././1._posteriors/1.03_masses_posteriors" role="menuitem">1.03 Masses Posteriors</a></li>
+                
+
+            </ul>
+        </li>
+        
+        <li class="dropdown ">
+            <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">2. Samples<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li role="presentation"><a href="../../2._samples" role="menuitem">Summary</a></li>
+                <li class="divider"></li>
+
+                <!-- set subsection counter integer -->
+                
+                    <li role="presentation"><a href="../.././2._samples/2.01_extrinsic_samples" role="menuitem">2.01 Extrinsic Samples</a></li>
+                
+                    <li role="presentation"><a href="../.././2._samples/2.02_intrinsic_samples" role="menuitem">2.02 Intrinsic Samples</a></li>
+                
+                    <li role="presentation"><a href="../.././2._samples/2.03_masses_samples" role="menuitem">2.03 Masses Samples</a></li>
+                
+
+            </ul>
+        </li>
+        
+        <li class="dropdown ">
+            <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">3. Workflow<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li role="presentation"><a href="../../3._workflow" role="menuitem">Summary</a></li>
+                <li class="divider"></li>
+
+                <!-- set subsection counter integer -->
+                
+                    <li role="presentation"><a href="../.././3._workflow/3.01_version" role="menuitem">3.01 Version</a></li>
+                
+                    <li role="presentation"><a href="../.././3._workflow/3.02_workflow_configuration" role="menuitem">3.02 Workflow Configuration</a></li>
+                
+                    <li role="presentation"><a href="../.././3._workflow/3.03_inference_configuration" role="menuitem">3.03 Inference Configuration</a></li>
+                
+
+            </ul>
+        </li>
+        
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div id="main">
+        <div class="container">
+            <div id="content">
+
+                <!-- page name -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>2.02 Intrinsic Samples</h1>
+                     </div>
+                </div>
+
+                <!-- set file counter integer -->
+                
+
+                <!-- include well if it exists and check meta-data if well renders any files inside it -->
+                
+                
+                    <div class=pycbc-meta key="render-function" value="render_tmplt"></div><div class=pycbc-meta key="filenames" value="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_0-1126259452-16.png,H1L1-INFERENCE_SAMPLES_0_INTRINSIC_1-1126259452-16.png,H1L1-INFERENCE_SAMPLES_0_INTRINSIC_2-1126259452-16.png,H1L1-INFERENCE_SAMPLES_0_INTRINSIC_3-1126259452-16.png,H1L1-INFERENCE_SAMPLES_0_INTRINSIC_4-1126259452-16.png,H1L1-INFERENCE_SAMPLES_0_INTRINSIC_5-1126259452-16.png,H1L1-INFERENCE_SAMPLES_0_INTRINSIC_6-1126259452-16.png,H1L1-INFERENCE_SAMPLES_0_INTRINSIC_7-1126259452-16.png,H1L1-INFERENCE_SAMPLES_0_INTRINSIC_8-1126259452-16.png,H1L1-INFERENCE_SAMPLES_0_INTRINSIC_9-1126259452-16.png"></div><!-- add a subtitle -->
+
+
+<!-- hold images inside a well -->
+<div class="scaffold well">
+
+    <!-- set file counter integer -->
+    
+
+    <!-- display formatted files -->
+    
+        <div class="row">
+
+            <!-- two file case -->
+            
+
+            <!-- one file case -->
+            
+                <div class="col-md-12" style="padding-top:20px;">
+                <a name="A1"></a>
+                    
+                    
+                        
+                            
+                                <p class="text-center" style="font-size:18px;">
+                                    <a href="#A1">
+                                    <b>A1. Samples for mchirp_from_mass1_mass2(mass1, mass2)</b></p>
+                                    </a>
+                                </p>
+                            
+                            <!--image file condition-->
+
+    <a class="fancybox" href="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_0-1126259452-16.png" data-fancybox-group="gallery" title=""><img src="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_0-1126259452-16.png" class="img-responsive center-block" alt="" /></a>
+
+<!--html file condition-->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='H1L1-INFERENCE_SAMPLES_0_INTRINSIC_0-1126259452-16.png' target="_blank">Link to File</a>
+
+<!--make a caption to the content -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Caption" data-placement="bottom"
+            data-content="All samples from all the walker chains for the parameters. Each
+line is a different chain of walker samples.">
+            Caption
+    </button>
+
+
+<!--show cmd line if there is one -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Command Line" data-placement="right"
+            data-content="/home/daniel.finstad/opt/pycbc-dev/bin/pycbc_inference_plot_samples --input-file H1L1-INFERENCE_0-1126259452-16.hdf --output-file H1L1-INFERENCE_SAMPLES_0_INTRINSIC_0-1126259452-16.png --parameters mchirp_from_mass1_mass2(mass1, mass2):mchirp">
+            Command Line
+    </button>
+
+                    
+                    
+                </div>
+            
+
+            <!-- increment -->
+            
+
+    </div>
+    
+        <div class="row">
+
+            <!-- two file case -->
+            
+
+            <!-- one file case -->
+            
+                <div class="col-md-12" style="padding-top:20px;">
+                <a name="A2"></a>
+                    
+                    
+                        
+                            
+                                <p class="text-center" style="font-size:18px;">
+                                    <a href="#A2">
+                                    <b>A2. Samples for q_from_mass1_mass2(mass1, mass2)</b></p>
+                                    </a>
+                                </p>
+                            
+                            <!--image file condition-->
+
+    <a class="fancybox" href="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_1-1126259452-16.png" data-fancybox-group="gallery" title=""><img src="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_1-1126259452-16.png" class="img-responsive center-block" alt="" /></a>
+
+<!--html file condition-->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='H1L1-INFERENCE_SAMPLES_0_INTRINSIC_1-1126259452-16.png' target="_blank">Link to File</a>
+
+<!--make a caption to the content -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Caption" data-placement="bottom"
+            data-content="All samples from all the walker chains for the parameters. Each
+line is a different chain of walker samples.">
+            Caption
+    </button>
+
+
+<!--show cmd line if there is one -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Command Line" data-placement="right"
+            data-content="/home/daniel.finstad/opt/pycbc-dev/bin/pycbc_inference_plot_samples --input-file H1L1-INFERENCE_0-1126259452-16.hdf --output-file H1L1-INFERENCE_SAMPLES_0_INTRINSIC_1-1126259452-16.png --parameters q_from_mass1_mass2(mass1, mass2):q">
+            Command Line
+    </button>
+
+                    
+                    
+                </div>
+            
+
+            <!-- increment -->
+            
+
+    </div>
+    
+        <div class="row">
+
+            <!-- two file case -->
+            
+
+            <!-- one file case -->
+            
+                <div class="col-md-12" style="padding-top:20px;">
+                <a name="A3"></a>
+                    
+                    
+                        
+                            
+                                <p class="text-center" style="font-size:18px;">
+                                    <a href="#A3">
+                                    <b>A3. Samples for primary_mass(mass1,mass2)</b></p>
+                                    </a>
+                                </p>
+                            
+                            <!--image file condition-->
+
+    <a class="fancybox" href="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_2-1126259452-16.png" data-fancybox-group="gallery" title=""><img src="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_2-1126259452-16.png" class="img-responsive center-block" alt="" /></a>
+
+<!--html file condition-->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='H1L1-INFERENCE_SAMPLES_0_INTRINSIC_2-1126259452-16.png' target="_blank">Link to File</a>
+
+<!--make a caption to the content -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Caption" data-placement="bottom"
+            data-content="All samples from all the walker chains for the parameters. Each
+line is a different chain of walker samples.">
+            Caption
+    </button>
+
+
+<!--show cmd line if there is one -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Command Line" data-placement="right"
+            data-content="/home/daniel.finstad/opt/pycbc-dev/bin/pycbc_inference_plot_samples --input-file H1L1-INFERENCE_0-1126259452-16.hdf --output-file H1L1-INFERENCE_SAMPLES_0_INTRINSIC_2-1126259452-16.png --parameters primary_mass(mass1,mass2):mass1">
+            Command Line
+    </button>
+
+                    
+                    
+                </div>
+            
+
+            <!-- increment -->
+            
+
+    </div>
+    
+        <div class="row">
+
+            <!-- two file case -->
+            
+
+            <!-- one file case -->
+            
+                <div class="col-md-12" style="padding-top:20px;">
+                <a name="A4"></a>
+                    
+                    
+                        
+                            
+                                <p class="text-center" style="font-size:18px;">
+                                    <a href="#A4">
+                                    <b>A4. Samples for secondary_mass(mass1,mass2)</b></p>
+                                    </a>
+                                </p>
+                            
+                            <!--image file condition-->
+
+    <a class="fancybox" href="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_3-1126259452-16.png" data-fancybox-group="gallery" title=""><img src="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_3-1126259452-16.png" class="img-responsive center-block" alt="" /></a>
+
+<!--html file condition-->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='H1L1-INFERENCE_SAMPLES_0_INTRINSIC_3-1126259452-16.png' target="_blank">Link to File</a>
+
+<!--make a caption to the content -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Caption" data-placement="bottom"
+            data-content="All samples from all the walker chains for the parameters. Each
+line is a different chain of walker samples.">
+            Caption
+    </button>
+
+
+<!--show cmd line if there is one -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Command Line" data-placement="right"
+            data-content="/home/daniel.finstad/opt/pycbc-dev/bin/pycbc_inference_plot_samples --input-file H1L1-INFERENCE_0-1126259452-16.hdf --output-file H1L1-INFERENCE_SAMPLES_0_INTRINSIC_3-1126259452-16.png --parameters secondary_mass(mass1,mass2):mass2">
+            Command Line
+    </button>
+
+                    
+                    
+                </div>
+            
+
+            <!-- increment -->
+            
+
+    </div>
+    
+        <div class="row">
+
+            <!-- two file case -->
+            
+
+            <!-- one file case -->
+            
+                <div class="col-md-12" style="padding-top:20px;">
+                <a name="A5"></a>
+                    
+                    
+                        
+                            
+                                <p class="text-center" style="font-size:18px;">
+                                    <a href="#A5">
+                                    <b>A5. Samples for primary_spin(mass1,mass2,spin1_a,spin2_a)</b></p>
+                                    </a>
+                                </p>
+                            
+                            <!--image file condition-->
+
+    <a class="fancybox" href="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_4-1126259452-16.png" data-fancybox-group="gallery" title=""><img src="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_4-1126259452-16.png" class="img-responsive center-block" alt="" /></a>
+
+<!--html file condition-->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='H1L1-INFERENCE_SAMPLES_0_INTRINSIC_4-1126259452-16.png' target="_blank">Link to File</a>
+
+<!--make a caption to the content -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Caption" data-placement="bottom"
+            data-content="All samples from all the walker chains for the parameters. Each
+line is a different chain of walker samples.">
+            Caption
+    </button>
+
+
+<!--show cmd line if there is one -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Command Line" data-placement="right"
+            data-content="/home/daniel.finstad/opt/pycbc-dev/bin/pycbc_inference_plot_samples --input-file H1L1-INFERENCE_0-1126259452-16.hdf --output-file H1L1-INFERENCE_SAMPLES_0_INTRINSIC_4-1126259452-16.png --parameters primary_spin(mass1,mass2,spin1_a,spin2_a):spin1_a">
+            Command Line
+    </button>
+
+                    
+                    
+                </div>
+            
+
+            <!-- increment -->
+            
+
+    </div>
+    
+        <div class="row">
+
+            <!-- two file case -->
+            
+
+            <!-- one file case -->
+            
+                <div class="col-md-12" style="padding-top:20px;">
+                <a name="A6"></a>
+                    
+                    
+                        
+                            
+                                <p class="text-center" style="font-size:18px;">
+                                    <a href="#A6">
+                                    <b>A6. Samples for primary_spin(mass1,mass2,spin1_azimuthal,spin2_azimuthal)</b></p>
+                                    </a>
+                                </p>
+                            
+                            <!--image file condition-->
+
+    <a class="fancybox" href="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_5-1126259452-16.png" data-fancybox-group="gallery" title=""><img src="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_5-1126259452-16.png" class="img-responsive center-block" alt="" /></a>
+
+<!--html file condition-->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='H1L1-INFERENCE_SAMPLES_0_INTRINSIC_5-1126259452-16.png' target="_blank">Link to File</a>
+
+<!--make a caption to the content -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Caption" data-placement="bottom"
+            data-content="All samples from all the walker chains for the parameters. Each
+line is a different chain of walker samples.">
+            Caption
+    </button>
+
+
+<!--show cmd line if there is one -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Command Line" data-placement="right"
+            data-content="/home/daniel.finstad/opt/pycbc-dev/bin/pycbc_inference_plot_samples --input-file H1L1-INFERENCE_0-1126259452-16.hdf --output-file H1L1-INFERENCE_SAMPLES_0_INTRINSIC_5-1126259452-16.png --parameters primary_spin(mass1,mass2,spin1_azimuthal,spin2_azimuthal):spin1_azimuthal">
+            Command Line
+    </button>
+
+                    
+                    
+                </div>
+            
+
+            <!-- increment -->
+            
+
+    </div>
+    
+        <div class="row">
+
+            <!-- two file case -->
+            
+
+            <!-- one file case -->
+            
+                <div class="col-md-12" style="padding-top:20px;">
+                <a name="A7"></a>
+                    
+                    
+                        
+                            
+                                <p class="text-center" style="font-size:18px;">
+                                    <a href="#A7">
+                                    <b>A7. Samples for primary_spin(mass1,mass2,spin1_polar,spin2_polar)</b></p>
+                                    </a>
+                                </p>
+                            
+                            <!--image file condition-->
+
+    <a class="fancybox" href="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_6-1126259452-16.png" data-fancybox-group="gallery" title=""><img src="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_6-1126259452-16.png" class="img-responsive center-block" alt="" /></a>
+
+<!--html file condition-->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='H1L1-INFERENCE_SAMPLES_0_INTRINSIC_6-1126259452-16.png' target="_blank">Link to File</a>
+
+<!--make a caption to the content -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Caption" data-placement="bottom"
+            data-content="All samples from all the walker chains for the parameters. Each
+line is a different chain of walker samples.">
+            Caption
+    </button>
+
+
+<!--show cmd line if there is one -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Command Line" data-placement="right"
+            data-content="/home/daniel.finstad/opt/pycbc-dev/bin/pycbc_inference_plot_samples --input-file H1L1-INFERENCE_0-1126259452-16.hdf --output-file H1L1-INFERENCE_SAMPLES_0_INTRINSIC_6-1126259452-16.png --parameters primary_spin(mass1,mass2,spin1_polar,spin2_polar):spin1_polar">
+            Command Line
+    </button>
+
+                    
+                    
+                </div>
+            
+
+            <!-- increment -->
+            
+
+    </div>
+    
+        <div class="row">
+
+            <!-- two file case -->
+            
+
+            <!-- one file case -->
+            
+                <div class="col-md-12" style="padding-top:20px;">
+                <a name="A8"></a>
+                    
+                    
+                        
+                            
+                                <p class="text-center" style="font-size:18px;">
+                                    <a href="#A8">
+                                    <b>A8. Samples for secondary_spin(mass1,mass2,spin1_a,spin2_a)</b></p>
+                                    </a>
+                                </p>
+                            
+                            <!--image file condition-->
+
+    <a class="fancybox" href="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_7-1126259452-16.png" data-fancybox-group="gallery" title=""><img src="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_7-1126259452-16.png" class="img-responsive center-block" alt="" /></a>
+
+<!--html file condition-->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='H1L1-INFERENCE_SAMPLES_0_INTRINSIC_7-1126259452-16.png' target="_blank">Link to File</a>
+
+<!--make a caption to the content -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Caption" data-placement="bottom"
+            data-content="All samples from all the walker chains for the parameters. Each
+line is a different chain of walker samples.">
+            Caption
+    </button>
+
+
+<!--show cmd line if there is one -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Command Line" data-placement="right"
+            data-content="/home/daniel.finstad/opt/pycbc-dev/bin/pycbc_inference_plot_samples --input-file H1L1-INFERENCE_0-1126259452-16.hdf --output-file H1L1-INFERENCE_SAMPLES_0_INTRINSIC_7-1126259452-16.png --parameters secondary_spin(mass1,mass2,spin1_a,spin2_a):spin2_a">
+            Command Line
+    </button>
+
+                    
+                    
+                </div>
+            
+
+            <!-- increment -->
+            
+
+    </div>
+    
+        <div class="row">
+
+            <!-- two file case -->
+            
+
+            <!-- one file case -->
+            
+                <div class="col-md-12" style="padding-top:20px;">
+                <a name="A9"></a>
+                    
+                    
+                        
+                            
+                                <p class="text-center" style="font-size:18px;">
+                                    <a href="#A9">
+                                    <b>A9. Samples for secondary_spin(mass1,mass2,spin1_azimuthal,spin2_azimuthal)</b></p>
+                                    </a>
+                                </p>
+                            
+                            <!--image file condition-->
+
+    <a class="fancybox" href="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_8-1126259452-16.png" data-fancybox-group="gallery" title=""><img src="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_8-1126259452-16.png" class="img-responsive center-block" alt="" /></a>
+
+<!--html file condition-->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='H1L1-INFERENCE_SAMPLES_0_INTRINSIC_8-1126259452-16.png' target="_blank">Link to File</a>
+
+<!--make a caption to the content -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Caption" data-placement="bottom"
+            data-content="All samples from all the walker chains for the parameters. Each
+line is a different chain of walker samples.">
+            Caption
+    </button>
+
+
+<!--show cmd line if there is one -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Command Line" data-placement="right"
+            data-content="/home/daniel.finstad/opt/pycbc-dev/bin/pycbc_inference_plot_samples --input-file H1L1-INFERENCE_0-1126259452-16.hdf --output-file H1L1-INFERENCE_SAMPLES_0_INTRINSIC_8-1126259452-16.png --parameters secondary_spin(mass1,mass2,spin1_azimuthal,spin2_azimuthal):spin2_azimuthal">
+            Command Line
+    </button>
+
+                    
+                    
+                </div>
+            
+
+            <!-- increment -->
+            
+
+    </div>
+    
+        <div class="row">
+
+            <!-- two file case -->
+            
+
+            <!-- one file case -->
+            
+                <div class="col-md-12" style="padding-top:20px;">
+                <a name="A10"></a>
+                    
+                    
+                        
+                            
+                                <p class="text-center" style="font-size:18px;">
+                                    <a href="#A10">
+                                    <b>A10. Samples for secondary_spin(mass1,mass2,spin1_polar,spin2_polar)</b></p>
+                                    </a>
+                                </p>
+                            
+                            <!--image file condition-->
+
+    <a class="fancybox" href="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_9-1126259452-16.png" data-fancybox-group="gallery" title=""><img src="H1L1-INFERENCE_SAMPLES_0_INTRINSIC_9-1126259452-16.png" class="img-responsive center-block" alt="" /></a>
+
+<!--html file condition-->
+
+
+<!--always link to file-->
+<a class="btn btn-xs btn-primary" href='H1L1-INFERENCE_SAMPLES_0_INTRINSIC_9-1126259452-16.png' target="_blank">Link to File</a>
+
+<!--make a caption to the content -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Caption" data-placement="bottom"
+            data-content="All samples from all the walker chains for the parameters. Each
+line is a different chain of walker samples.">
+            Caption
+    </button>
+
+
+<!--show cmd line if there is one -->
+
+    <button type="button" class="btn btn-xs btn-primary"
+            data-toggle="popover" title="Command Line" data-placement="right"
+            data-content="/home/daniel.finstad/opt/pycbc-dev/bin/pycbc_inference_plot_samples --input-file H1L1-INFERENCE_0-1126259452-16.hdf --output-file H1L1-INFERENCE_SAMPLES_0_INTRINSIC_9-1126259452-16.png --parameters secondary_spin(mass1,mass2,spin1_polar,spin2_polar):spin2_polar">
+            Command Line
+    </button>
+
+                    
+                    
+                </div>
+            
+
+            <!-- increment -->
+            
+
+    </div>
+    
+
+</div>
+                    
+                        
+                    
+                
+
+                <hr class="row-divider">
+
+                <!-- display other files in directory -->
+                
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- loop over files in directory -->
+                        <h1>Additional Files</h1>
+                            The following files were also found in this directory:
+                            <div class="row" style="padding:15px">
+                                <button id="collapse-init" class="btn btn-xs btn-primary">Expand All</button>
+                            </div>
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                                
+
+                                    <!-- get config file -->
+                                    
+
+                                    <!-- do not show well.html -->
+                                    
+
+                                
+                            
+                    </div>
+                </div>
+                
+
+            </div>
+         </div>
+     </div>
+</div>
+
+<footer>
+    <div class="container-fluid">
+        <div class="footer-custom">
+            <a href="../../sitemap/index.html">Sitemap</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
