@@ -14,7 +14,7 @@ To run the tutorials, we recommend using [SciServer](https://apps.sciserver.org)
      git clone https://github.com/gwastro/PyCBCInferenceWorkshopMay2019.git
      ```
      This will download a copy of this repository to your directory on SciServer.
-  5. Go back to your tab with the Jupyter notebook. Click on the "PyCBCInferenceWorkshopMay2019" directory. From there you can navigate to the tutorial you want to view (using the [Program]((https://github.com/gwastro/PyCBCInferenceWorkshopMay2019/wiki/Program) as a guide. When you click on a tutorial (files that end in `.ipynb`), a new tab will open with tutorial open in it. All of the code needed is installed at the beginning of the tutorials.
+  5. Go back to your tab with the Jupyter notebook. Click on the "PyCBCInferenceWorkshopMay2019" directory. From there you can navigate to the tutorial you want to view (using the [Program](https://github.com/gwastro/PyCBCInferenceWorkshopMay2019/wiki/Program) as a guide). When you click on a tutorial (files that end in `.ipynb`), a new tab will open with tutorial open in it. All of the code needed is installed at the beginning of the tutorials.
 
 ### Using a package manager on your local computer
 Alternatively, if you prefer to run things on your local computer, create an environment to run in using your favorite package manager (e.g., conda, virtualenv) and install jupyter into it (e.g., `pip install jupyter`). Then clone the repository using the above command.
