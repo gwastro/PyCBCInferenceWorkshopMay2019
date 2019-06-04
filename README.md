@@ -10,10 +10,10 @@ To run the tutorials, we recommend using [SciServer](https://apps.sciserver.org)
   2. Click "Create container". Give it a name; in the "Compute Image" drop-down menu click "Python + R". Then click "Create."
   3. Click on the container you just created; this will open a new tab in your browser that is a Jupyter notebook interface.
   4. Clone this repository into your SciServer container: Click "New" -> "Terminal". This will open another tab that with a bash terminal in it. Change directory into "workspace" by typing `cd workspace`. Now type:
-  ```
-  git clone https://github.com/gwastro/PyCBCInferenceWorkshopMay2019.git
-  ```
-  This will download a copy of this repository to your directory on SciServer.
+     ```
+     git clone https://github.com/gwastro/PyCBCInferenceWorkshopMay2019.git
+     ```
+     This will download a copy of this repository to your directory on SciServer.
   5. Go back to your tab with the Jupyter notebook. Click on the "PyCBCInferenceWorkshopMay2019" directory. From there you can navigate to the tutorial you want to view (using the [Program]((https://github.com/gwastro/PyCBCInferenceWorkshopMay2019/wiki/Program) as a guide. When you click on a tutorial (files that end in `.ipynb`), a new tab will open with tutorial open in it. All of the code needed is installed at the beginning of the tutorials.
 
 ### Using a package manager on your local computer
