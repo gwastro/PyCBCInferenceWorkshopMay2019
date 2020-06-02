@@ -3,7 +3,7 @@ Repository for the PyCBC Inference workshop in Portsmouth, UK, 14 May - 16 May 2
 
 This repository contains all of the tutorials and talks that were presented at the workshop; it provides a good introduction to PyCBC Inference, and Bayesian inference in general. We recommend following the [Program](https://github.com/gwastro/PyCBCInferenceWorkshopMay2019/wiki/Program). The links listed there link to the tutorials/lectures in this repository.
 
-:warning: **Note: The notebooks in this tutorial were developed using PyCBC v1.13.8. They are not maintained, and will not work with current versions of PyCBC. For updated versions, see the notebooks starting with "inference" in the PyCBC Tutorials repository, [here](https://github.com/gwastro/PyCBC-Tutorials/tree/master/tutorial). The notebooks in that tutorial are kept up to date with current versions of PyCBC.**
+:warning: **Note: The notebooks in this tutorial were developed using PyCBC v1.13.8. They are not maintained, and will not work with current versions of PyCBC. For updated versions, see the notebooks starting with "inference" in the PyCBC Tutorials repository, [here](https://github.com/gwastro/PyCBC-Tutorials/tree/master/tutorial). The notebooks in that repository are kept up to date with current versions of PyCBC.**
 
 ## How to run the tutorials
 ### Using SciServer
